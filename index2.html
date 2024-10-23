@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Serena's Web</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Serena</a>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+        </nav>
+    </header>
+    
+    <section class="home">
+        <div class="home-img">
+            <img src="main.jpg" alt="">
+        </div>
+        <div class="home-content">
+            <h1>Hi, It's <span>Serena</span></h1>
+            <h3 class="typing-text">I'm a <span></span></h3>
+            <p>Sistem Informasi Universitas Pembangunan Jaya</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h1>About Me</h1>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="foto.jpg" alt="About Me">
+            </div>
+            <div class="about-text">
+                <h2>Nama : Serena Mariana</h2>
+                <h3>NIM : 2024081021</h3>
+                <p>Halo! 🌟 Saya adalah mahasiswa semester 1 di Program Studi Sistem Informasi...</p>
+                <p>Saya memiliki hobi mendengarkan musik 🎶, yang selalu menjadi cara saya untuk bersantai dan menemukan inspirasi...</p>
+                <p>Saya sangat antusias untuk mengeksplorasi lebih dalam tentang sistem informasi dan berharap bisa berkontribusi dalam bidang ini di masa depan. Terima kasih telah mengunjungi halaman saya! 😊</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="experience" id="experience">
+        <h1>Experience</h1>
+        <div class="experience-content">
+            <div class="experience-item">
+                <h2>Internship at Tech Company</h2>
+                <p><strong>June 2023 - August 2023</strong></p>
+                <p>During my internship at Tech Company, I worked on developing web applications...</p>
+            </div>
+            <div class="experience-item">
+                <h2>Freelance Web Developer</h2>
+                <p><strong>January 2022 - Present</strong></p>
+                <p>As a freelance web developer, I have successfully completed multiple projects...</p>
+            </div>
+            <div class="experience-item">
+                <h2>Project: Personal Portfolio Website</h2>
+                <p><strong>Completed: March 2024</strong></p>
+                <p>Developed a personal portfolio website to showcase my skills...</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Serena. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+
+            sections.forEach(section => {
+                if (current === section.getAttribute('id')) {
+                    section.classList.remove('fade-out');
+                } else {
+                    section.classList.add('fade-out');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
